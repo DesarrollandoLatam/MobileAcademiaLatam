@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MobileAcademiaLatam</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="valor_accion">Mostrar</string>
+    <string name="title_activity_mostrar_informacion">mostrarInformacion</string>
+    <string name="text_ingreso">Nombre</string>
+</resources>
