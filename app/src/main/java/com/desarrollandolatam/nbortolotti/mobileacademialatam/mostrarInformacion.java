@@ -22,7 +22,7 @@ public class mostrarInformacion extends Activity {
         Bundle b =this.getIntent().getExtras();
 
         //proponer el mensaje
-        textMostrarNombre.setText("Bienvenido " + b.getString("nombre"));
+        textMostrarNombre.setText("Seleccion " + b.getString("nombre"));
 
     }
 

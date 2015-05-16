@@ -1,44 +1,80 @@
 package com.desarrollandolatam.nbortolotti.mobileacademialatam;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.Window;
+import android.widget.ImageButton;
 
 
 public class MainActivity extends Activity {
 
-    private EditText textNombre;
-    private Button buttonMostrar;
+    private ImageButton buttonMostrar;
+    private ImageButton buttonMostrarJirafa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_main);
 
         //referencias de los controles iniciales
-        textNombre = (EditText)findViewById(R.id.textNombre);
-        buttonMostrar = (Button)findViewById(R.id.buttonMostrar);
+        buttonMostrar = (ImageButton)findViewById(R.id.buttonMostrar);
 
         //accion para el boton principal
         buttonMostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getWindow().setExitTransition(new Explode());
 
                 //Creamos el intent
                 Intent inMostrar = new Intent(MainActivity.this, mostrarInformacion.class);
 
                 //pasar informacion entreactividades
                 Bundle b = new Bundle();
-                b.putString("nombre", textNombre.getText().toString());
+                b.putString("nombre", "Tigre");
 
                 inMostrar.putExtras(b);
 
-                startActivity(inMostrar);
+                ActivityOptions options = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this);
+
+                startActivity(inMostrar, options.toBundle());
+
+
+            }
+        });
+
+
+        //referencias de los controles iniciales
+        buttonMostrarJirafa = (ImageButton)findViewById(R.id.buttonMostrarJirafa);
+
+        //accion para el boton principal
+        buttonMostrarJirafa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getWindow().setExitTransition(new Explode());
+
+                //Creamos el intent
+                Intent inMostrar = new Intent(MainActivity.this, mostrarInformacion.class);
+
+                //pasar informacion entreactividades
+                Bundle b = new Bundle();
+                b.putString("nombre", "Jirafa");
+
+                inMostrar.putExtras(b);
+
+                ActivityOptions options = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this);
+
+                startActivity(inMostrar, options.toBundle());
+
 
             }
         });

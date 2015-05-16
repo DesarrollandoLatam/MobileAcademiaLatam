@@ -1,25 +1,137 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollGeneral">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/valor_accion"
-        android:id="@+id/buttonMostrar"
-        android:layout_below="@+id/textNombre"
-        android:layout_alignParentStart="true" />
+        android:orientation="vertical"
+        android:id="@+id/linear_general">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textNombre"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:inputType="textPersonName"
-        android:text="@string/text_ingreso" />
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_tigre"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        card_view:cardCornerRadius="4dp">
 
-</RelativeLayout>
+        <ImageView android:contentDescription="@string/descripcionTigre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType = "centerCrop"
+            android:id="@+id/imagenTigre"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/tigre_10">
+
+
+        </ImageView>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+
+            android:text="@string/valor_accion"
+            android:id="@+id/buttonMostrar"
+            android:layout_below="@+id/textNombre"
+
+            android:contentDescription="@string/descripcionTigre"
+            android:src="@drawable/icon40x40">
+
+        </ImageButton>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_jirafa"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        card_view:cardCornerRadius="4dp"
+        >
+
+        <ImageView android:contentDescription="@string/descripcionJirafa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType = "centerCrop"
+            android:id="@+id/imagenJirafa"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/jirafa_10">
+
+
+        </ImageView>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+
+            android:text="@string/valor_accion_jirafa"
+            android:id="@+id/buttonMostrarJirafa"
+            android:layout_below="@+id/textNombre"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/descripcionJirafa"
+            android:src="@drawable/icon40x40"/>
+
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_oso"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        card_view:cardCornerRadius="4dp">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/valor_accion_oso"
+            android:id="@+id/buttonMostrarOso"
+            android:layout_below="@+id/textNombre"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/descripcionOso" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_elefante"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        card_view:cardCornerRadius="4dp">
+
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/valor_accion_elefante"
+            android:id="@+id/buttonMostrarElefante"
+            android:layout_below="@+id/textNombre"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/descripcionElefante" />
+
+
+    </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+</ScrollView>

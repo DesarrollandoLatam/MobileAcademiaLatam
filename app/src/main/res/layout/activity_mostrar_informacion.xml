@@ -8,6 +8,8 @@
 
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textMostrarNombre" />
+        android:id="@+id/textMostrarNombre"
+        android:elevation="5dp"
+        />
 
 </RelativeLayout>

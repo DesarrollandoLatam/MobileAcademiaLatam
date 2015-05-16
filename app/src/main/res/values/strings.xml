@@ -3,7 +3,15 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="valor_accion">Mostrar</string>
+    <string name="valor_accion">Tigre</string>
+    <string name="valor_accion_jirafa">Jirafa</string>
     <string name="title_activity_mostrar_informacion">mostrarInformacion</string>
     <string name="text_ingreso">Nombre</string>
+    <string name="texto_tigre">Tigre</string>
+    <string name="valor_accion_oso">Oso</string>
+    <string name="valor_accion_elefante">Elefante</string>
+    <string name="descripcionTigre">descripcion tigre</string>
+    <string name="descripcionJirafa">jirafa</string>
+    <string name="descripcionOso">Oso</string>
+    <string name="descripcionElefante">Elefante</string>
 </resources>
