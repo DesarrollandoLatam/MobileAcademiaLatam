@@ -51,7 +51,6 @@
 
     </android.support.v7.widget.CardView>
 
-
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_jirafa"
@@ -90,23 +89,39 @@
 
     </android.support.v7.widget.CardView>
 
-
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_oso"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         card_view:cardCornerRadius="4dp">
 
-        <ImageButton
+        <ImageView android:contentDescription="@string/descripcionJirafa"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/valor_accion_oso"
-            android:id="@+id/buttonMostrarOso"
-            android:layout_below="@+id/textNombre"
+            android:layout_height="wrap_content"
+            android:scaleType = "centerCrop"
+            android:id="@+id/imagenOso"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/panda">
+
+
+        </ImageView>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+
+            android:text="@string/valor_accion_panda"
+            android:id="@+id/buttonMostrarPanda"
+            android:layout_below="@+id/textNombrePanda"
             android:layout_alignParentStart="true"
-            android:contentDescription="@string/descripcionOso" />
+            android:contentDescription="@string/descripcionPanda"
+            android:src="@drawable/icon40x40"/>
 
 
     </android.support.v7.widget.CardView>
@@ -131,7 +146,6 @@
 
 
     </android.support.v7.widget.CardView>
-
 
     </LinearLayout>
 </ScrollView>

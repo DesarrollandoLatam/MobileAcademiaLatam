@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
 
     private ImageButton buttonMostrar;
     private ImageButton buttonMostrarJirafa;
+    private ImageButton buttonMostrarPanda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,35 @@ public class MainActivity extends Activity {
                 //pasar informacion entreactividades
                 Bundle b = new Bundle();
                 b.putString("nombre", "Jirafa");
+
+                inMostrar.putExtras(b);
+
+                ActivityOptions options = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this);
+
+                startActivity(inMostrar, options.toBundle());
+
+
+            }
+        });
+        
+
+        //Panda en Vivo
+        //referencias de los controles iniciales
+        buttonMostrarPanda = (ImageButton)findViewById(R.id.buttonMostrarPanda);
+
+        //accion para el boton principal
+        buttonMostrarPanda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getWindow().setExitTransition(new Explode());
+
+                //Creamos el intent
+                Intent inMostrar = new Intent(MainActivity.this, mostrarInformacion.class);
+
+                //pasar informacion entreactividades
+                Bundle b = new Bundle();
+                b.putString("nombre", "Panda");
 
                 inMostrar.putExtras(b);
 
