@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class mostrarInformacion extends Activity {
 
-
     private TextView textMostrarNombre;
 
     @Override

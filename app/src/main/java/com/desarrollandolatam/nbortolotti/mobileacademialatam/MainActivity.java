@@ -1,18 +1,27 @@
 package com.desarrollandolatam.nbortolotti.mobileacademialatam;
 
-import android.app.Activity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.ui.auth.core.AuthProviderType;
+import com.firebase.ui.auth.core.FirebaseLoginBaseActivity;
+import com.firebase.ui.auth.core.FirebaseLoginError;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FirebaseLoginBaseActivity {
+
+    private Firebase mFirebaseRef;
 
     private ImageButton buttonMostrar;
     private ImageButton buttonMostrarJirafa;
@@ -20,10 +29,24 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        supportRequestWindowFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         super.onCreate(savedInstanceState);
+        Firebase.setAndroidContext(this);
 
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        //getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+
         setContentView(R.layout.activity_main);
+
+        mFirebaseRef = new Firebase("https://androidlevel1.firebaseio.com/");
+
+        Button loginButton = (Button) this.findViewById(R.id.login);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showFirebaseLoginPrompt();
+            }
+        });
 
         //referencias de los controles iniciales
         buttonMostrar = (ImageButton)findViewById(R.id.buttonMostrar);
@@ -32,7 +55,7 @@ public class MainActivity extends Activity {
         buttonMostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getWindow().setExitTransition(new Explode());
+                //getWindow().setExitTransition(new Explode());
 
                 //Creamos el intent
                 Intent inMostrar = new Intent(MainActivity.this, mostrarInformacion.class);
@@ -60,7 +83,7 @@ public class MainActivity extends Activity {
         buttonMostrarJirafa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getWindow().setExitTransition(new Explode());
+                //getWindow().setExitTransition(new Explode());
 
                 //Creamos el intent
                 Intent inMostrar = new Intent(MainActivity.this, mostrarInformacion.class);
@@ -79,7 +102,7 @@ public class MainActivity extends Activity {
 
             }
         });
-        
+
 
         //Panda en Vivo
         //referencias de los controles iniciales
@@ -89,7 +112,7 @@ public class MainActivity extends Activity {
         buttonMostrarPanda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getWindow().setExitTransition(new Explode());
+                //getWindow().setExitTransition(new Explode());
 
                 //Creamos el intent
                 Intent inMostrar = new Intent(MainActivity.this, mostrarInformacion.class);
@@ -119,16 +142,48 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setEnabledAuthProvider(AuthProviderType.PASSWORD);
+    }
+
+    @Override
+    protected void onFirebaseLoggedIn(AuthData authData) {
+        Context context = getApplicationContext();
+        CharSequence text = "Autenticado!!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    @Override
+    protected Firebase getFirebaseRef() {
+        return mFirebaseRef;
+    }
+
+    @Override
+    protected void onFirebaseLoginProviderError(FirebaseLoginError firebaseLoginError) {
+
+    }
+
+    @Override
+    protected void onFirebaseLoginUserError(FirebaseLoginError firebaseLoginError) {
+        Context context = getApplicationContext();
+        CharSequence text = "Error de autenticacion";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 }
